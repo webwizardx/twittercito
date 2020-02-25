@@ -48,7 +48,6 @@ ctrl.viewTweet = async (req, res) => {
 ctrl.likes = async (req, res) => {
 
     let tweet = await Tweet.findOne({ _id: req.params.id });
-    console.log(tweet);
 
     let authUser = req.user || '' ;
     let user;
