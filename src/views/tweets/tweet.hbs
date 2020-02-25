@@ -1,0 +1,89 @@
+<div class="col-md-9 mx-auto">
+    <div class="col-md-6 mx-auto">
+        {{>messages}}
+    </div>
+    <div class="card mt-2">
+        <div class="card-body">
+            <ul class="list-group p-4">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col mr-auto">
+                            <a href="#" class="text-center">
+                                <img src="http://gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45" alt="Icon"
+                                    class="rounded-circle">
+                            </a>
+                            <h6 class="d-inline">{{name}}</h6>
+                            <h6 class="d-inline">{{email}}</h6>
+                            <a href="/tweet/{{_id}}">See the tweet</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <blockquote class="col">
+                            <div class="container p-2 m-2">
+                                <p class="lead">{{text}}</p>
+                                <footer class="blockquote-footer">
+                                    <i class="far fa-clock"></i>
+                                    {{name}} - {{timeago timestamp}}
+                                </footer>
+                            </div>
+                        </blockquote>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="card-footer d-flex justify-content-around align-items-center">
+            <button class="btn btn-info" id="btn-like-{{_id}}" data-id="{{_id}}" onclick=like('{{_id}}')>
+                <span class="likes-count" id="{{_id}}"> {{likes}}</span>
+                <i class="fas fa-heart"></i>
+            </button>
+            <button class="btn btn-info" id="btn-toggle-tweet">
+                {{commentsNumber}} <i class="fa fa-comment"></i>
+            </button>
+        </div>
+        <div class="card-body">
+            <blockquote id="post-tweet">
+                <form action="/tweet/{{_id}}/comment" method="POST">
+                    <div class="form-group">
+                        <textarea name="tweet" rows="2" class="form-control" placeholder="Your Tweet"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success" id="btn-comment">
+                            <i class="fa fa-comment"></i> Post
+                        </button>
+                    </div>
+                </form>
+            </blockquote>
+        </div>
+    </div>
+    {{#each comments}}
+    <div class="card mt-2">
+        <div class="card-body">
+            <ul class="list-group p-4">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col mr-auto">
+                            <a href="#" class="text-center">
+                                <img src="http://gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45" alt="Icon"
+                                    class="rounded-circle">
+                            </a>
+                            <h6 class="d-inline">{{name}}</h6>
+                            <h6 class="d-inline">{{email}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <blockquote class="col">
+                            <div class="container p-2 m-2">
+                                <p class="lead">{{text}}</p>
+                                <footer class="blockquote-footer">
+                                    <i class="far fa-clock"></i>
+                                    {{name}} - {{timeago timestamp}}
+                                </footer>
+                            </div>
+                        </blockquote>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/each}}
+</div>
