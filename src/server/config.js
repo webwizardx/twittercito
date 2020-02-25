@@ -1,6 +1,6 @@
 const path = require('path');
 const exphbs = require('express-handlebars');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const express = require('express');
 const routes = require('../routes');
 const errorHandler = require('errorhandler');
