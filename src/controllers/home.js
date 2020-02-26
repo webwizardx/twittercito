@@ -1,4 +1,4 @@
-const { User, Tweet} = require('../models')
+const { User, Tweet } = require('../models')
 const passport = require('passport');
 const ctrl = {};
 
